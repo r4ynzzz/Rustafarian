@@ -21,6 +21,9 @@ mod front_of_house {
 //or use 'super' within parent module.
 use crate::front_of_house::hosting;
 
+//we can also use re-exporting to access add_to_waitlist from other places into their scope
+//pub use crate::front_of_house::hosting;
+
 //mod customer {
 //can add 'use crate:;front_of_house:;hosting' here.
 
