@@ -1,56 +1,12 @@
 //Since both front_of_house and eat_at_restaurant are siblings, no need to make front_of_house
 //public to access its contents. Though, its contents do have to be public to be accessed.
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
+mod front_of_house;
 
-        fn seat_at_table() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
-
-//Use goes out of scope when new Mod is created.(mod creates its own scope.)
-//to make use of this link, you can add it inside the customer module
-//or use 'super' within parent module.
-use crate::front_of_house::hosting;
-
-//we can also use re-exporting to access add_to_waitlist from other places into their scope
-//pub use crate::front_of_house::hosting;
-
-//mod customer {
-//can add 'use crate:;front_of_house:;hosting' here.
+pub use crate::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
-    //Absolute path
-    crate::front_of_house::hosting::add_to_waitlist();
-    //Relative path
-    front_of_house::hosting::add_to_waitlist();
-
-    //Order a Breakfast in the summer with Rye toast.
-    let mut meal = back_of_house::Breakfast::summer("Rye");
-    //Change our mind about what bread we'd like.
-    meal.toast = String::from("Wheat");
-    println!("I'd like {} toast please", meal.toast);
-
-    //used super here
-    //super::hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-
-    // The next line won't compile if we uncomment it; we're not allowed
-    // to see or modify the seasonal fruit that comes with the meal.
-    //meal.seasonal_fruit = String::from("blueberries");
-
-    let order1 = back_of_house::Appetizer::Soup;
-    let order1 = back_of_house::Appetizer::Salad;
+    hosting::add_to_watchlist();
 }
-//}
 
 fn deliver_order() {}
 
