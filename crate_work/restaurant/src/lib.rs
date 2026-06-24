@@ -97,3 +97,24 @@ use std::io::Result as IoResult;
 
 //then, use alias
 //fn function2() -> IoResult<()> {}
+
+//Nested Paths.
+//would be:
+//
+//use std::cmp::Ordering;
+//use std::io;
+//
+//but now, with nesting:
+use std::{cmp::Ordering, io};
+
+//another Way of nesting paths.
+//would be:
+//
+//use std::io;
+//use std::io::Write;
+//
+//but now:
+use std::io::{self, Write};
+
+//if we want to bring all public items of a path, use '*'
+use std::collections::*;
