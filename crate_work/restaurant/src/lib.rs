@@ -16,6 +16,14 @@ mod front_of_house {
     }
 }
 
+//Use goes out of scope when new Mod is created.(mod creates its own scope.)
+//to make use of this link, you can add it inside the customer module
+//or use 'super' within parent module.
+use crate::front_of_house::hosting;
+
+//mod customer {
+//can add 'use crate:;front_of_house:;hosting' here.
+
 pub fn eat_at_restaurant() {
     //Absolute path
     crate::front_of_house::hosting::add_to_waitlist();
@@ -28,6 +36,10 @@ pub fn eat_at_restaurant() {
     meal.toast = String::from("Wheat");
     println!("I'd like {} toast please", meal.toast);
 
+    //used super here
+    //super::hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+
     // The next line won't compile if we uncomment it; we're not allowed
     // to see or modify the seasonal fruit that comes with the meal.
     //meal.seasonal_fruit = String::from("blueberries");
@@ -35,6 +47,7 @@ pub fn eat_at_restaurant() {
     let order1 = back_of_house::Appetizer::Soup;
     let order1 = back_of_house::Appetizer::Salad;
 }
+//}
 
 fn deliver_order() {}
 
