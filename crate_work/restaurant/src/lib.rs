@@ -85,3 +85,12 @@ mod back_of_house {
 
     fn cook_order() {}
 }
+
+use std::fmt::Result;
+//use 'as' to give alias.
+use std::io::Result as IoResult;
+
+//fn function1() -> Result {}
+
+//then, use alias
+//fn function2() -> IoResult<()> {}
